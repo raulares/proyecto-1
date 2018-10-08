@@ -45,19 +45,53 @@ float Pentagono::obtenerArea() const
 
 int main()
 {
-	Pentagono MiPentagono(PI);
+	cout << "\nUsando el constructor predeterminado: " << endl;
+	Pentagono PentagonoPredeterminado;
 
-	cout << "Coordenada en X del punto 1 es ";
-	cout << MiPentagono.obtenerVerticeUno().obtenerX() << endl;
+	cout << "\tLa distancia de los vértices al centro del pentágono es ";
+	cout << PentagonoPredeterminado.obtenerRadio() << ".\n";
 
-	cout << "Coordenada en Y del punto 3 es ";
-	cout << MiPentagono.obtenerVerticeTres().obtenerY() << endl;
+	cout << "\tEl perímetro es ";
+	cout << PentagonoPredeterminado.obtenerPerimetro();
+	cout << " y el área es ";
+	cout << PentagonoPredeterminado.obtenerArea() << ".\n\n";
 
-	cout << "El perímetro es ";
-	cout << MiPentagono.obtenerPerimetro() << endl;
+	cout << "Usando el constructor con parámetros: " << endl;
+	Pentagono PentagonoConParametros(4);
 
-	cout << "El área es ";
-	cout << MiPentagono.obtenerArea() << endl;
+	cout << "\tLa distancia de los vértices al centro del pentágono es ";
+	cout << PentagonoConParametros.obtenerRadio() << ".\n";
+
+	cout << "\tEl perímetro es ";
+	cout << PentagonoConParametros.obtenerPerimetro();
+	cout << " y el área es ";
+	cout << PentagonoConParametros.obtenerArea() << ".\n\n";
+
+	cout << "Ahora, usando punteros con el constructor predeterminado: " << endl;
+	Pentagono *PPentagonoPredeterminado = new Pentagono;
+
+	cout << "\tLa distancia de lo vértices al centro del pentágono es ";
+	cout << PPentagonoPredeterminado->obtenerRadio() << ".\n";
+
+	cout << "\tEl perímetro es ";
+	cout << PPentagonoPredeterminado->obtenerPerimetro();
+	cout << " y el área es ";
+	cout << PPentagonoPredeterminado->obtenerArea() << ".\n\n";
+
+	delete PPentagonoPredeterminado;
+
+	cout << "Por último, usando punteros con parámetros específicos: " << endl;
+	Pentagono *PPentagonoConParametros = new Pentagono(2.5);
+
+	cout << "\tLa distancia de los vértices al centro del pentágono es ";
+	cout << PPentagonoConParametros->obtenerRadio() << ".\n";
+
+	cout << "\tEl perímetro es ";
+	cout << PPentagonoConParametros->obtenerPerimetro();
+	cout << " y el área es ";
+	cout << PPentagonoConParametros->obtenerArea() << ".\n\n";
+
+	delete PPentagonoConParametros;
 
 	return 0;
 }
