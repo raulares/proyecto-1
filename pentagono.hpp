@@ -1,7 +1,7 @@
 #include <iostream>
 #include <math.h>
 
-#define PI 3.13159265
+#define PI 3.14159265
 
 using namespace std;
 
@@ -40,8 +40,8 @@ class Pentagono
 
 		void asignarRadio(int radio) { suRadio = radio; }
 
-		float obtenerArea() const;
 		float obtenerPerimetro() const;
+		float obtenerArea() const;
 
 	private:
 		Punto suVerticeUno;
