@@ -1,7 +1,10 @@
-#include "pentagono.hpp"
+#include "pentagonolado.hpp"
 
-Pentagono::Pentagono(float radio)
+Pentagono::Pentagono(float lado)
 {
+	float radio;
+	radio = lado / sqrt(2);
+	radio = radio / sqrt(1 - cos(2 * PI / 5));
 	suRadio = radio;
 
 	suVerticeUno.asignarX(radio * cos(0));
@@ -67,7 +70,7 @@ int main()
 	cout << "Ahora, usando punteros con el constructor predeterminado: " << endl;
 	Pentagono *PPentagonoPredeterminado = new Pentagono;
 
-	cout << "\tLa distancia de lo vértices al centro del pentágono es ";
+	cout << "\tLa distancia de los vértices al centro del pentágono es ";
 	cout << PPentagonoPredeterminado->obtenerRadio() << ".\n";
 
 	cout << "\tEl perímetro es ";

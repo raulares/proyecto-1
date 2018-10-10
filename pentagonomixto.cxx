@@ -1,7 +1,13 @@
-#include "pentagono.hpp"
+#include "pentagonomixto.hpp"
 
-Pentagono::Pentagono(float radio)
+Pentagono::Pentagono(float distancia, bool lado)
 {
+	float radio;
+	if (lado) {
+	radio = distancia / sqrt(2);
+	radio = radio / sqrt(1 - cos(2 * PI / 5));}
+	else { radio = distancia; }
+
 	suRadio = radio;
 
 	suVerticeUno.asignarX(radio * cos(0));
@@ -18,17 +24,19 @@ Pentagono::Pentagono(float radio)
 
 	suVerticeCinco.asignarX(radio * cos(8 * PI / 5));
 	suVerticeCinco.asignarY(radio * sin(8 * PI / 5));
+
+	if (lado) { suLado = distancia; }
+	else {
+	float distanciaX;
+	float distanciaY;
+	distanciaX = pow(suVerticeUno.obtenerX() - suVerticeDos.obtenerX(), 2);
+	distanciaY = pow(suVerticeUno.obtenerY() - suVerticeDos.obtenerY(), 2);
+	suLado = sqrt(distanciaX + distanciaY); }
 }
 
 float Pentagono::obtenerPerimetro() const
 {
-	float distanciaX;
-	float distanciaY;
-	float lado;
-	distanciaX = pow(suVerticeUno.obtenerX() - suVerticeDos.obtenerX(), 2);
-	distanciaY = pow(suVerticeUno.obtenerY() - suVerticeDos.obtenerY(), 2);
-	lado = sqrt(distanciaX + distanciaY);
-	return 5 * lado;
+	return 5 * suLado;
 }
 
 float Pentagono::obtenerArea() const
@@ -54,10 +62,10 @@ int main()
 	cout << PentagonoPredeterminado.obtenerArea() << ".\n\n";
 
 	cout << "Usando el constructor con parámetros: " << endl;
-	Pentagono PentagonoConParametros(4);
+	Pentagono PentagonoConParametros(4, true);
 
-	cout << "\tLa distancia de los vértices al centro del pentágono es ";
-	cout << PentagonoConParametros.obtenerRadio() << ".\n";
+	cout << "\tLa longitud del lado del pentágono es ";
+	cout << PentagonoConParametros.obtenerLado() << ".\n";
 
 	cout << "\tEl perímetro es ";
 	cout << PentagonoConParametros.obtenerPerimetro();
@@ -67,7 +75,7 @@ int main()
 	cout << "Ahora, usando punteros con el constructor predeterminado: " << endl;
 	Pentagono *PPentagonoPredeterminado = new Pentagono;
 
-	cout << "\tLa distancia de lo vértices al centro del pentágono es ";
+	cout << "\tLa distancia de los vértices al centro del pentágono es ";
 	cout << PPentagonoPredeterminado->obtenerRadio() << ".\n";
 
 	cout << "\tEl perímetro es ";
