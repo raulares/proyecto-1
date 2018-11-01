@@ -10,10 +10,9 @@
 
 *pentagonociclico.cxx* es una locura mia, así siento que debería de haber sido el proyecto y por eso quise hacerlo, no obstante, es una pendejada mia, ignorenla por completo.
 
+*pentagonofinal.cxx* debería de ser el archivo que presentemos.
+
 Cosas que faltan:
-- **Elegir lado, radio o ambos del pentágono.**
-- Arreglar nombres de las variables.
-- Escoger datos iniciales para el main.
-- Agregar comentarios.
-- Revisar el código de acuerdo a la hoja de estilo.
+- **Escoger datos iniciales para el main.**
+- **Revisar el código de acuerdo a la hoja de estilo.**
 
